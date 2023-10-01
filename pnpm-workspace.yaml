@@ -1,0 +1,3 @@
+packages:
+  # every projects in the projects folder will be a package
+  - "projects/**"
