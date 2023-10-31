@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,6 +16,18 @@
   -webkit-text-size-adjust: 100%;
 
   box-sizing: border-box;
+
+  /* COLORS */
+  --primary-color: #4182f8;
+  --primary-light: #7bb9d7;
+  --secondary: #f99d17;
+  --secondary-light: #fdb863;
+
+  --body-color: #323232;
+
+  /* FONTS */
+
+  --game-family: "Rubik Mono One";
 }
 
 a {
@@ -27,9 +41,18 @@ a:hover {
 
 body {
   margin: 0;
-  padding: 0;
+
   display: flex;
   place-items: center;
   min-width: 20rem;
   min-height: 100vh;
+
+  color: var(--body-color);
+
+  background: var(--primary-color);
+  background: linear-gradient(
+    0deg,
+    var(--primary-color) 0%,
+    var(--primary-light) 100%
+  );
 }

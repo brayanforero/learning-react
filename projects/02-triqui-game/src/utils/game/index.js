@@ -1,4 +1,4 @@
-import { POSIBLE_HANDS } from "../../consts";
+import { POSIBLE_HANDS, TURNS } from "../../consts";
 
 export const checkWinner = (boardToCheck) => {
   for (let line of POSIBLE_HANDS) {
@@ -17,4 +17,8 @@ export const checkWinner = (boardToCheck) => {
 
 export const checkEndOfGame = (boardToCheck) => {
   return boardToCheck.every((s) => s !== null);
+};
+
+export const setPlayerClassName = (player) => {
+  return player === TURNS.X ? "player-1" : "player-2";
 };

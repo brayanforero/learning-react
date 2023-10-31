@@ -7,12 +7,14 @@
 
 .board {
   max-width: 50rem;
-  padding: 0.25rem;
+  padding: 1rem 2rem;
   border-radius: 0.25rem;
+
+  background-color: #f2f2f2;
 }
 
 .board-title {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 1.25rem;
@@ -32,15 +34,56 @@
 }
 
 .square {
-  padding: 2rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 0.5rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: 1px solid;
-  transition: background-color 320ms ease;
+  outline: 1px solid #ccc;
+
+  font-family: var(--game-family), monospace;
+  line-height: 1;
+  transition: background-color 0.3s ease;
+}
+
+.player-1 {
+  filter: drop-shadow(0 14px 0.85rem var(--primary-color));
+  color: var(--primary-color);
+  font-size: 3em;
+}
+
+.player-2 {
+  filter: drop-shadow(0 14px 0.85rem var(--secondary));
+  color: var(--secondary);
+  font-size: 3em;
 }
 
 .square.is-selected {
-  background-color: #0fb;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.winnerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 2em;
+
+  background-color: rgb(255 255 255 / 0.15);
+  backdrop-filter: blur(0.5rem);
+}
+
+.winnerModal-body {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+
+  background-color: #f2f2f2;
 }

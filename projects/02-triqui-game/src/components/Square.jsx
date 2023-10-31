@@ -1,4 +1,4 @@
-function Square({ children, index, onSelect, selected }) {
+function Square({ children, index, onSelect, selected, playerClassName }) {
   const handleClick = () => {
     onSelect(index);
   };
@@ -7,7 +7,7 @@ function Square({ children, index, onSelect, selected }) {
 
   return (
     <div onClick={handleClick} role="button" className={squareCss}>
-      {children}
+      <span className={playerClassName}>{children}</span>
     </div>
   );
 }
