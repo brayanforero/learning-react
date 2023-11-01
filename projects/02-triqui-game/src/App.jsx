@@ -10,12 +10,12 @@ const INITIAL_BOARD = Array(9).fill(null);
 
 function App() {
   const [board, setBoard] = useState(() => {
-    const storageBoard = window.sessionStorage.getItem("board");
+    const storageBoard = window.localStorage.getItem("board");
     return !storageBoard ? INITIAL_BOARD : JSON.parse(storageBoard);
   });
 
   const [hand, setHand] = useState(() => {
-    const storageHand = window.sessionStorage.getItem("hand");
+    const storageHand = window.localStorage.getItem("hand");
     return !storageHand ? TURNS.X : storageHand;
   });
 
