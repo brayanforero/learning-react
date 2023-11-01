@@ -4,10 +4,21 @@ import Square from "./components/Square";
 import WinnerModal from "./components/WinnerModal";
 import { TURNS } from "./consts";
 import { checkEndOfGame, checkWinner, setPlayerClassName } from "./utils/game";
+import { cleanBoard, saveBoard } from "./utils/storage";
+
+const INITIAL_BOARD = Array(9).fill(null);
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [hand, setHand] = useState(TURNS.X);
+  const [board, setBoard] = useState(() => {
+    const storageBoard = window.sessionStorage.getItem("board");
+    return !storageBoard ? INITIAL_BOARD : JSON.parse(storageBoard);
+  });
+
+  const [hand, setHand] = useState(() => {
+    const storageHand = window.sessionStorage.getItem("hand");
+    return !storageHand ? TURNS.X : storageHand;
+  });
+
   const [winner, setWinner] = useState(null);
 
   const setHandOnBoard = (index) => {
@@ -19,6 +30,7 @@ function App() {
     const newHand = hand === TURNS.X ? TURNS.O : TURNS.X;
     setHand(newHand);
 
+    saveBoard({ board: newBoard, hand: newHand });
     const hasWinner = checkWinner(newBoard);
 
     if (hasWinner) setWinner(hasWinner);
@@ -29,6 +41,7 @@ function App() {
     setBoard(Array(9).fill(null));
     setHand(TURNS.X);
     setWinner(null);
+    cleanBoard();
   };
 
   return (
