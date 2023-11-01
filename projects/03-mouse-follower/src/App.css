@@ -1,0 +1,20 @@
+#root {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.mouseFollower {
+  position: absolute;
+  top: -1.25rem;
+  left: -1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  outline: 1px solid #fff;
+
+  opacity: 0.8;
+  background-color: #fb0;
+  pointer-events: none;
+}
