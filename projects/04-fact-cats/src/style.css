@@ -1,0 +1,70 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  box-sizing: border-box;
+}
+
+:root,
+body {
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  margin-bottom: 1.25rem;
+  font-size: 2.5em;
+  line-height: 1.1;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: 30rem;
+  border-radius: 0.5rem;
+
+  background-color: #ccc;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+}
+
+p {
+  min-height: 4.5rem;
+}
+
+#app {
+  max-width: 50rem;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+main {
+  display: flex;
+  gap: 1rem;
+}
