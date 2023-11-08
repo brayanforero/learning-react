@@ -1,31 +1,23 @@
 import { useEffect, useState } from 'react'
-import { FACT_CAT_URL, IMAGE_CAT_URL } from '../constants'
+import { getFact } from '../services/fact'
 
 function useFact () {
   const [fact, setFact] = useState()
-  const [image, setImage] = useState()
-  useEffect(() => {
-    fetch(FACT_CAT_URL)
-      .then(res => res.json())
-      .then(data => {
-        const { fact } = data
-        setFact(fact)
+  const [error, setError] = useState()
+  const loadFact = () => {
+    getFact()
+      .then(fact => setFact(fact))
+      .catch(e => {
+        setError(e.message)
       })
-  }, [])
+  }
 
-  useEffect(() => {
-    if (!fact) return
-    const threeFirstWord = fact.split(' ', 3).join(' ')
-    fetch(`${IMAGE_CAT_URL}/${threeFirstWord}`)
-      .then(res => res.blob())
-      .then(data => {
-        const newImage = URL.createObjectURL(data)
-        setImage(newImage)
-      })
-  }, [fact])
+  useEffect(loadFact, [])
+
   return {
     fact,
-    image
+    error,
+    loadFact
   }
 }
 
