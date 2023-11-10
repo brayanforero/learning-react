@@ -27,7 +27,7 @@ img {
   aspect-ratio: 9/13;
 
   background-color: #ccc;
-  transition: transform 240ms ease;
+  transition: transform 0.5s ease;
 }
 article {
   text-align: initial;
@@ -49,7 +49,6 @@ article:hover img {
 }
 
 form {
-  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +63,8 @@ form {
 }
 
 .movieLoader-poster {
-  width: 280px;
+  min-width: 280px;
+  width: 100%;
   aspect-ratio: 9/13;
 
   border-radius: var(--loader-radius);
@@ -85,4 +85,13 @@ form {
   height: 1rem;
   border-radius: 2px;
   background-color: var(--base-color);
+}
+
+.text-error {
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: tomato;
 }

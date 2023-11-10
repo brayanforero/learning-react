@@ -4,11 +4,11 @@ import { searchMovies } from "../services/omdb/movies"
 function useMovies({ search }) {
   const [movies, setMovies] = useState([])
   const lastSearch = useRef(search)
-
   const [loader, setLoader] = useState(false)
+
   const getMovies = useCallback(({ query }) => {
 
-    if (query === lastSearch.current) return
+    if (query === lastSearch.current || query === '') return
     setLoader(true)
     searchMovies({ query })
       .then(setMovies)

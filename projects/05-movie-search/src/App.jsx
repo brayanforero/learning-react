@@ -5,7 +5,7 @@ import { MovieLoader, Movies } from "./components";
 import { useSearch } from "./hooks";
 import useMovies from "./hooks/useMovies";
 function App() {
-  const { query, updateQuery } = useSearch()
+  const { query, error: hasError, updateQuery } = useSearch()
   const { movies, getMovies, isLoading } = useMovies({ search: query })
 
   const debounceGetMovies = useCallback(debounce((param) => getMovies({ query: param }), 500), [getMovies])
@@ -30,6 +30,7 @@ function App() {
           <input onChange={handleChange} name="query" autoComplete="off" type="text" placeholder="avengers, ballers...." />
           <button type="submit">Buscar</button>
         </form>
+        <small className='text-error'>{hasError}</small>
       </header>
       <main>
         {
